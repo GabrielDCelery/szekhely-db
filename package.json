@@ -1,0 +1,33 @@
+{
+  "name": "szekhely-db",
+  "version": "1.0.0",
+  "description": "Database for szekhely",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielDCelery/szekhely-db.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielDCelery/szekhely-db/issues"
+  },
+  "homepage": "https://github.com/GabrielDCelery/szekhely-db#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mysql2": "^1.4.2",
+    "pluralize": "^7.0.0",
+    "sequelize": "^4.19.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.2"
+  }
+}
