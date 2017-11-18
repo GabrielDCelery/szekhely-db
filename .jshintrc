@@ -1,6 +1,17 @@
 {
-  "node": true,
-  "mocha": true,
+  "curly": true,
   "esversion": 6,
-  "indent": 1
+  "latedef": true,
+  "maxcomplexity": 6,
+  "maxdepth": 4,
+  "maxparams": 4,
+  "maxstatements": 15,
+  "mocha": true,
+  "node": true,
+  "nonew": true,
+  "notypeof": true,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "varstmt": true
 }
