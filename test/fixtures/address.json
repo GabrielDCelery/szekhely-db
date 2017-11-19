@@ -1,0 +1,49 @@
+[{
+    "model": "address",
+    "data": {
+        "id": "address0-00000000-00000000-00000001",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    }
+}, {
+    "model": "address",
+    "data": {
+        "id": "address0-00000000-00000000-00000002",
+        "postcode": 5000,
+        "city": "Szolnok",
+        "address": "Gerle út 6"
+    }
+}, {
+    "model": "address",
+    "data": {
+        "id": "address0-00000000-00000000-00000003",
+        "postcode": 4287,
+        "city": "Vámospércs",
+        "address": "Kendereskert utca 12"
+    }
+}, {
+    "model": "address",
+    "data": {
+        "id": "address0-00000000-00000000-00000004",
+        "postcode": 1064,
+        "city": "Budapest",
+        "address": "Izabella utca 66"
+    }
+}, {
+    "model": "address",
+    "data": {
+        "id": "address0-00000000-00000000-00000005",
+        "postcode": 8900,
+        "city": "Zalaegerszeg",
+        "address": "Kisfaludy Sándor utca 16/1"
+    }
+}, {
+    "model": "address",
+    "data": {
+        "id": "address0-00000000-00000000-00000006",
+        "postcode": 2400,
+        "city": "Dunaújváros",
+        "address": "Akácos út 6."
+    }
+}]

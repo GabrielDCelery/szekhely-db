@@ -9,10 +9,10 @@ function contract(_sequelize, _modelName, _options) {
             defaultValue: _sequelize.Sequelize.UUIDV4,
             primaryKey: true
         },
-        starting_date: {
+        startingDate: {
             type: _sequelize.Sequelize.DATE()
         },
-        ending_date: {
+        endingDate: {
             type: _sequelize.Sequelize.DATE()
         },
         services: {

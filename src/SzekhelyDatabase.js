@@ -11,21 +11,41 @@ const MODELS = {
         name: 'contract',
         definition: require('./models/contract')
     },
+    contractHistory: {
+        name: 'contractHistory',
+        definition: require('./models/contractHistory')
+    },
     contractSigner: {
-        name: 'contract_signer',
-        definition: require('./models/contractSigner')
+        name: 'contractSigner',
+        definition: require('./models/legalEntity')
+    },
+    contractSignerHistory: {
+        name: 'contractSignerHistory',
+        definition: require('./models/legalEntityHistory')
     },
     customer: {
         name: 'customer',
-        definition: require('./models/customer')
+        definition: require('./models/legalEntity')
+    },
+    customerHistory: {
+        name: 'customerHistory',
+        definition: require('./models/legalEntityHistory')
     },
     documentHolder: {
-        name: 'document_holder',
-        definition: require('./models/documentHolder')
+        name: 'documentHolder',
+        definition: require('./models/legalEntity')
+    },
+    documentHolderHistory: {
+        name: 'documentHolderHistory',
+        definition: require('./models/legalEntityHistory')
     },
     letterReceiver: {
-        name: 'letter_receiver',
-        definition: require('./models/letterReceiver')
+        name: 'letterReceiver',
+        definition: require('./models/legalEntity')
+    },
+    letterReceiverHistory: {
+        name: 'letterReceiverHistory',
+        definition: require('./models/legalEntityHistory')
     },
     email: {
         name: 'email',
@@ -40,12 +60,16 @@ const MODELS = {
         definition: require('./models/phone')
     },
     postalAuthorization: {
-        name: 'postal_authorization',
+        name: 'postalAuthorization',
         definition: require('./models/postalAuthorization')
     },
     serviceProvider: {
-        name: 'service_provider',
-        definition: require('./models/serviceProvider')
+        name: 'serviceProvider',
+        definition: require('./models/legalEntity')
+    },
+    serviceProviderHistory: {
+        name: 'serviceProviderHistory',
+        definition: require('./models/legalEntityHistory')
     }
 };
 
@@ -58,52 +82,82 @@ const ASSOCIATIONS = {
     customerAuthorizations: {
         type: 'oneToMany',
         source: 'customer',
-        target: 'postal_authorization'
+        target: 'postalAuthorization'
     },
     customerAddress: {
         type: 'oneToMany',
         source: 'address',
         target: 'customer'
     },
+    customerHistory: {
+        type: 'oneToMany',
+        source: 'customer',
+        target: 'customerHistory'
+    },
+    contractHistory: {
+        type: 'oneToMany',
+        source: 'contract',
+        target: 'contractHistory'
+    },
     contractSignerContracts: {
         type: 'oneToMany',
-        source: 'contract_signer',
+        source: 'contractSigner',
         target: 'contract'
     },
     contractSignerAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'contract_signer'
+        target: 'contractSigner'
+    },
+    contractSignerHistory: {
+        type: 'oneToMany',
+        source: 'contractSigner',
+        target: 'contractSignerHistory'
     },
     letterReceiverContracts: {
         type: 'oneToMany',
-        source: 'letter_receiver',
+        source: 'letterReceiver',
         target: 'contract'
     },
     letterReceiverAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'letter_receiver'
+        target: 'letterReceiver'
+    },
+    letterReceiverHistory: {
+        type: 'oneToMany',
+        source: 'letterReceiver',
+        target: 'letterReceiverHistory'
     },
     serviceProviderContracts: {
         type: 'oneToMany',
-        source: 'service_provider',
+        source: 'serviceProvider',
         target: 'contract'
     },
     serviceProviderAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'service_provider'
+        target: 'serviceProvider'
+    },
+    serviceProviderHistory: {
+        type: 'oneToMany',
+        source: 'serviceProvider',
+        target: 'serviceProviderHistory'
     },
     documentHolderContracts: {
         type: 'oneToMany',
-        source: 'document_holder',
+        source: 'documentHolder',
         target: 'contract'
     },
     documentHolderAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'document_holder'
+        target: 'documentHolder'
+    },
+    documentHolderHistory: {
+        type: 'oneToMany',
+        source: 'documentHolder',
+        target: 'documentHolderHistory'
     },
     contractEmails: {
         type: 'manyToMany',

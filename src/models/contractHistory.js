@@ -2,32 +2,29 @@
 
 const _ = require('lodash');
 
-function invoice(_sequelize, _modelName, _options) {
+function contract(_sequelize, _modelName, _options) {
     return _sequelize.define(_modelName, {
         id: {
             type: _sequelize.Sequelize.UUID(),
             defaultValue: _sequelize.Sequelize.UUIDV4,
             primaryKey: true
         },
-        number: {
-            type: _sequelize.Sequelize.STRING(15)
-        },
-        amount: {
-            type: _sequelize.Sequelize.INTEGER.UNSIGNED
-        },
-        billingDate: {
+        startingDate: {
             type: _sequelize.Sequelize.DATE()
         },
-        transferDate: {
+        endingDate: {
             type: _sequelize.Sequelize.DATE()
         },
-        paymentMethod: {
+        services: {
             type: _sequelize.Sequelize.INTEGER.UNSIGNED
         },
-        extra: {
-            type: _sequelize.Sequelize.BLOB()
+        effectiveFrom: {
+            type: _sequelize.Sequelize.DATE()
+        },
+        effectiveTill: {
+            type: _sequelize.Sequelize.DATE()
         }
     }, _.defaultsDeep({}, {}, _options));
 }
 
-module.exports = invoice;
+module.exports = contract;

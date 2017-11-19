@@ -1,0 +1,14 @@
+[{
+    "model": "customer",
+    "data": {
+        "id": "customer-00000000-00000000-00000001",
+        "registerId": "01-09-939113",
+        "taxId": "14659762-2-41",
+        "name": "Adóporta",
+        "motherName": null,
+        "type": 1,
+        "createdAt": "2017-11-19T00:00:00.000Z",
+        "updatedAt": "2017-11-19T00:00:00.000Z",
+        "address": "address0-00000000-00000000-00000001"
+    }
+}]

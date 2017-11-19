@@ -1,0 +1,17 @@
+[{
+    "customerName": "Agrár-Fer 99",
+    "customerType": "Kft",
+    "customerTaxId": "14659762-2-41",
+    "customerRegisterId": "01-09-939113",
+    "customerPostcode": 1035,
+    "customerCity": "Budapest",
+    "customerAddress": "Miklós utca 13 8/42"
+}, {
+    "customerName": "Budapesti út 6.",
+    "customerType": "Bt",
+    "customerTaxId": null,
+    "customerRegisterId": null,
+    "customerPostcode": 1035,
+    "customerCity": "Budapest",
+    "customerAddress": "Miklós utca 13 8/42"
+}]

@@ -2,23 +2,29 @@
 
 const _ = require('lodash');
 
-function contractSigner(_sequelize, _modelName, _options) {
+function legalEntity(_sequelize, _modelName, _options) {
     return _sequelize.define(_modelName, {
         id: {
             type: _sequelize.Sequelize.UUID(),
             defaultValue: _sequelize.Sequelize.UUIDV4,
             primaryKey: true
         },
+        registerId: {
+            type: _sequelize.Sequelize.STRING(20)
+        },
+        taxId: {
+            type: _sequelize.Sequelize.STRING(20)
+        },
         name: {
             type: _sequelize.Sequelize.STRING(64)
         },
-        personal_id: {
-            type: _sequelize.Sequelize.STRING(20)
-        },
-        mother_name: {
+        motherName: {
             type: _sequelize.Sequelize.STRING(64)
         },
+        type: {
+            type: _sequelize.Sequelize.INTEGER.UNSIGNED
+        }
     }, _.defaultsDeep({}, {}, _options));
 }
 
-module.exports = contractSigner;
+module.exports = legalEntity;

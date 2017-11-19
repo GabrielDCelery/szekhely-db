@@ -1,0 +1,16 @@
+[{
+    "model": "customerHistory",
+    "data": {
+        "id": "chistory-00000000-00000000-00000001",
+        "registerId": null,
+        "taxId": null,
+        "name": "Adóporta",
+        "motherName": null,
+        "type": 1,
+        "effectiveFrom": "2017-11-16T00:00:00.000Z",
+        "effectiveTill": "2017-11-19T00:00:00.000Z",
+        "createdAt": "2017-11-19T00:00:00.000Z",
+        "updatedAt": "2017-11-19T00:00:00.000Z",
+        "address": "address0-00000000-00000000-00000001"
+    }
+}]

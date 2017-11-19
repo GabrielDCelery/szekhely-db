@@ -15,7 +15,8 @@ const DEFAULT_DB_CONFIG = {
         max: 5,
         min: 0,
         idle: 10000
-    }
+    },
+    logging: false
 };
 
 const DB = {
@@ -31,9 +32,7 @@ class DatabaseCore {
             throw new Error(`Model ${_modelName} already registered!`);
         }
 
-        _.set(DB.models, _modelName, _modelDefinition(DB.sequelize, _modelName, {
-            underscored: true
-        }));
+        _.set(DB.models, _modelName, _modelDefinition(DB.sequelize, _modelName));
     }
 
     static _registerModels(_models) {
@@ -62,37 +61,37 @@ class DatabaseCore {
 
     static _registerOneToOneAssociation(_sourceModel, _targetModel) {
         _sourceModel.hasOne(_targetModel, {
-            foreignKey: `${_sourceModel.name}_id`,
+            foreignKey: `${_sourceModel.name}Id`,
             sourceKey: 'id'
         });
 
         _targetModel.belongsTo(_sourceModel, {
-            foreignKey: `${_sourceModel.name}_id`,
+            foreignKey: `${_sourceModel.name}Id`,
             targetKey: 'id'
         });
     }
 
     static _registerOneToManyAssociation(_sourceModel, _targetModel) {
         _sourceModel.hasMany(_targetModel, {
-            foreignKey: `${_sourceModel.name}_id`,
+            foreignKey: `${_sourceModel.name}Id`,
             sourceKey: 'id'
         });
 
         _targetModel.belongsTo(_sourceModel, {
-            foreignKey: `${_sourceModel.name}_id`,
+            foreignKey: `${_sourceModel.name}Id`,
             targetKey: 'id'
         });
     }
 
     static _registerManyToManyAssociation(_sourceModel, _targetModel) {
         _sourceModel.belongsToMany(_targetModel, {
-            through: pluralize(`${_sourceModel.name}_${_targetModel.name}`),
-            foreignKey: `${_sourceModel.name}_id`
+            through: pluralize(`${_sourceModel.name}${_.upperFirst(_targetModel.name)}`),
+            foreignKey: `${_sourceModel.name}Id`
         });
 
         _targetModel.belongsToMany(_sourceModel, {
-            through: pluralize(`${_sourceModel.name}_${_targetModel.name}`),
-            foreignKey: `${_targetModel.name}_id`
+            through: pluralize(`${_sourceModel.name}${_.upperFirst(_targetModel.name)}`),
+            foreignKey: `${_targetModel.name}Id`
         });
     }
 
@@ -122,6 +121,14 @@ class DatabaseCore {
         return _controller;
     }
 
+    static getSequelize() {
+        if (!DB.initialized) {
+            throw new Error('Initialize database before trying to get the sequelize isntance!');
+        }
+
+        return DB.sequelize;
+    }
+
     static _initDb(_dbConfig, _tables) {
         if (DB.initialized) {
             throw new Error('Tried to initialize database twice!');
@@ -132,7 +139,8 @@ class DatabaseCore {
         DB.sequelize = new Sequelize(_config.database, _config.username, _config.password, {
             host: _config.host,
             dialect: _config.dialect,
-            pool: _config.pool
+            pool: _config.pool,
+            logging: _config.logging
         });
 
         DatabaseCore._registerModels(_tables.models);
@@ -151,7 +159,7 @@ class DatabaseCore {
 
     static resetDb(_bForceSync) {
         if (!DB.initialized) {
-            throw new Error('Initialize database before sync!');
+            throw new Error('Initialize database before reset!');
         }
 
         const _options = {};
