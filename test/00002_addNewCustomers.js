@@ -18,6 +18,7 @@ let sandbox = null;
 let clock = null;
 
 describe('addNewCustomer', () => {
+    /*
     beforeEach(() => {
         sandbox = sinon.sandbox.create();
         clock = sinon.useFakeTimers(new Date('2017-11-19'));
@@ -32,6 +33,7 @@ describe('addNewCustomer', () => {
         sandbox.restore();
         clock.restore();
     });
+    */
 
     it('adds a new contract', () => {
         return SzekhelyController.processArray('AddNewContract', addNewCustomersData);

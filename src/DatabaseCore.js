@@ -3,7 +3,45 @@
 const _ = require('lodash');
 const pluralize = require('pluralize');
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const BaseController = require('./BaseController');
+
+const OPERATOR_ALIASES = {
+    $eq: Op.eq,
+    $ne: Op.ne,
+    $gte: Op.gte,
+    $gt: Op.gt,
+    $lte: Op.lte,
+    $lt: Op.lt,
+    $not: Op.not,
+    $in: Op.in,
+    $notIn: Op.notIn,
+    $is: Op.is,
+    $like: Op.like,
+    $notLike: Op.notLike,
+    $iLike: Op.iLike,
+    $notILike: Op.notILike,
+    $regexp: Op.regexp,
+    $notRegexp: Op.notRegexp,
+    $iRegexp: Op.iRegexp,
+    $notIRegexp: Op.notIRegexp,
+    $between: Op.between,
+    $notBetween: Op.notBetween,
+    $overlap: Op.overlap,
+    $contains: Op.contains,
+    $contained: Op.contained,
+    $adjacent: Op.adjacent,
+    $strictLeft: Op.strictLeft,
+    $strictRight: Op.strictRight,
+    $noExtendRight: Op.noExtendRight,
+    $noExtendLeft: Op.noExtendLeft,
+    $and: Op.and,
+    $or: Op.or,
+    $any: Op.any,
+    $all: Op.all,
+    $values: Op.values,
+    $col: Op.col
+};
 
 const DEFAULT_DB_CONFIG = {
     database: 'database',
@@ -16,7 +54,7 @@ const DEFAULT_DB_CONFIG = {
         min: 0,
         idle: 10000
     },
-    logging: false
+    logging: true
 };
 
 const DB = {
@@ -137,6 +175,7 @@ class DatabaseCore {
         const _config = _.defaultsDeep({}, _dbConfig, DEFAULT_DB_CONFIG);
 
         DB.sequelize = new Sequelize(_config.database, _config.username, _config.password, {
+            operatorAliases: OPERATOR_ALIASES,
             host: _config.host,
             dialect: _config.dialect,
             pool: _config.pool,

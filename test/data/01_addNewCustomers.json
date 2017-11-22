@@ -5,7 +5,12 @@
     "customerRegisterId": "01-09-939113",
     "customerPostcode": 1035,
     "customerCity": "Budapest",
-    "customerAddress": "Miklós utca 13 8/42"
+    "customerAddress": "Miklós utca 13 8/42",
+    "contractSignerName": "Dr. Kisné Sváb Ildikó",
+    "contractSignerType": "ügyvezető",
+    "contractSignerTaxId": null,
+    "contractSignerRegisterId": "449084KA",
+    "contracSignerMotherName": "Pallagi Klára"
 }, {
     "customerName": "Budapesti út 6.",
     "customerType": "Bt",
@@ -13,5 +18,23 @@
     "customerRegisterId": null,
     "customerPostcode": 1035,
     "customerCity": "Budapest",
-    "customerAddress": "Miklós utca 13 8/42"
+    "customerAddress": "Miklós utca 13 8/42",
+    "contractSignerName": "Michael Cormac O'Hare",
+    "contractSignerType": "ügyvezető",
+    "contractSignerTaxId": null,
+    "contractSignerRegisterId": "LB0014793",
+    "contracSignerMotherName": "Elizabeth O'Reilly"
+}, {
+    "customerName": "Controll and Quality",
+    "customerType": "Kft",
+    "customerTaxId": "20165091-2-41",
+    "customerRegisterId": "12-09-007807",
+    "customerPostcode": 2030,
+    "customerCity": "Érd",
+    "customerAddress": "Kálvin tér 1",
+    "contractSignerName": "Dr. Kisné Sváb Ildikó",
+    "contractSignerType": "ügyvezető",
+    "contractSignerTaxId": null,
+    "contractSignerRegisterId": "449084KA",
+    "contracSignerMotherName": "Pallagi Klára"
 }]

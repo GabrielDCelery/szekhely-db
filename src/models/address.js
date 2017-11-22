@@ -10,7 +10,7 @@ function address(_sequelize, _modelName, _options) {
             primaryKey: true
         },
         postcode: {
-            type: _sequelize.Sequelize.INTEGER().UNSIGNED,
+            type: _sequelize.Sequelize.INTEGER.UNSIGNED,
             unique: 'address'
         },
         city: {
