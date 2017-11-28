@@ -15,12 +15,12 @@ const MODELS = {
         name: 'contractHistory',
         definition: require('./models/contractHistory')
     },
-    contractSigner: {
-        name: 'contractSigner',
+    signer: {
+        name: 'signer',
         definition: require('./models/legalEntity')
     },
-    contractSignerHistory: {
-        name: 'contractSignerHistory',
+    signerHistory: {
+        name: 'signerHistory',
         definition: require('./models/legalEntityHistory')
     },
     customer: {
@@ -31,20 +31,20 @@ const MODELS = {
         name: 'customerHistory',
         definition: require('./models/legalEntityHistory')
     },
-    documentHolder: {
-        name: 'documentHolder',
+    holder: {
+        name: 'holder',
         definition: require('./models/legalEntity')
     },
-    documentHolderHistory: {
-        name: 'documentHolderHistory',
+    holderHistory: {
+        name: 'holderHistory',
         definition: require('./models/legalEntityHistory')
     },
-    letterReceiver: {
-        name: 'letterReceiver',
+    recipient: {
+        name: 'recipient',
         definition: require('./models/legalEntity')
     },
-    letterReceiverHistory: {
-        name: 'letterReceiverHistory',
+    recipientHistory: {
+        name: 'recipientHistory',
         definition: require('./models/legalEntityHistory')
     },
     email: {
@@ -99,35 +99,35 @@ const ASSOCIATIONS = {
         source: 'contract',
         target: 'contractHistory'
     },
-    contractSignerContracts: {
+    signerContracts: {
         type: 'oneToMany',
-        source: 'contractSigner',
+        source: 'signer',
         target: 'contract'
     },
-    contractSignerAddress: {
+    signerAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'contractSigner'
+        target: 'signer'
     },
-    contractSignerHistory: {
+    signerHistory: {
         type: 'oneToMany',
-        source: 'contractSigner',
-        target: 'contractSignerHistory'
+        source: 'signer',
+        target: 'signerHistory'
     },
-    letterReceiverContracts: {
+    recipientContract: {
         type: 'oneToMany',
-        source: 'letterReceiver',
+        source: 'recipient',
         target: 'contract'
     },
-    letterReceiverAddress: {
+    recipientAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'letterReceiver'
+        target: 'recipient'
     },
-    letterReceiverHistory: {
+    recipientHistory: {
         type: 'oneToMany',
-        source: 'letterReceiver',
-        target: 'letterReceiverHistory'
+        source: 'recipient',
+        target: 'recipientHistory'
     },
     serviceProviderContracts: {
         type: 'oneToMany',
@@ -144,20 +144,20 @@ const ASSOCIATIONS = {
         source: 'serviceProvider',
         target: 'serviceProviderHistory'
     },
-    documentHolderContracts: {
+    holderContracts: {
         type: 'oneToMany',
-        source: 'documentHolder',
+        source: 'holder',
         target: 'contract'
     },
-    documentHolderAddress: {
+    holderAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'documentHolder'
+        target: 'holder'
     },
-    documentHolderHistory: {
+    holderHistory: {
         type: 'oneToMany',
-        source: 'documentHolder',
-        target: 'documentHolderHistory'
+        source: 'holder',
+        target: 'holderHistory'
     },
     contractEmails: {
         type: 'manyToMany',

@@ -1,40 +1,127 @@
 [{
-    "customerName": "Agrár-Fer 99",
-    "customerType": "Kft",
-    "customerTaxId": "14659762-2-41",
-    "customerRegisterId": "01-09-939113",
-    "customerPostcode": 1035,
-    "customerCity": "Budapest",
-    "customerAddress": "Miklós utca 13 8/42",
-    "contractSignerName": "Dr. Kisné Sváb Ildikó",
-    "contractSignerType": "ügyvezető",
-    "contractSignerTaxId": null,
-    "contractSignerRegisterId": "449084KA",
-    "contracSignerMotherName": "Pallagi Klára"
+    "customer": {
+        "name": "Agrár-Fer 99",
+        "type": "Kft",
+        "taxId": "14659762-2-41",
+        "registerId": "01-09-939113",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    },
+    "signer": {
+        "name": "Dr. Kisné Sváb Ildikó",
+        "type": "ügyvezető",
+        "taxId": null,
+        "registerId": "449084KA",
+        "motherName": "Pallagi Klára"
+    },
+    "holder": {
+        "name": "Kuti Miklósné",
+        "type": "magánszemély",
+        "taxId": null,
+        "registerId": null,
+        "postcode": 8200,
+        "city": "Veszprém",
+        "address": "Baláca u. 18."
+    },
+    "recipient": {
+        "name": "Kuti Miklósné",
+        "type": "magánszemély",
+        "postcode": 8200,
+        "city": "Veszprém",
+        "address": "Baláca u. 18."
+    },
+    "serviceProvider": {
+        "name": "Zeller és Zeller",
+        "type": "Kft",
+        "taxId": "01-09-993019",
+        "registerId": "24154440-2-42",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    }
 }, {
-    "customerName": "Budapesti út 6.",
-    "customerType": "Bt",
-    "customerTaxId": null,
-    "customerRegisterId": null,
-    "customerPostcode": 1035,
-    "customerCity": "Budapest",
-    "customerAddress": "Miklós utca 13 8/42",
-    "contractSignerName": "Michael Cormac O'Hare",
-    "contractSignerType": "ügyvezető",
-    "contractSignerTaxId": null,
-    "contractSignerRegisterId": "LB0014793",
-    "contracSignerMotherName": "Elizabeth O'Reilly"
+    "customer": {
+        "name": "Budapesti út 6.",
+        "type": "Bt",
+        "taxId": null,
+        "registerId": null,
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    },
+    "signer": {
+        "name": "Michael Cormac O'Hare",
+        "type": "ügyvezető",
+        "taxId": null,
+        "registerId": "LB0014793",
+        "motherName": "Elizabeth O'Reilly"
+    },
+    "holder": {
+        "name": "Bortolozzo Italia",
+        "type": "magánszemély",
+        "taxId": null,
+        "registerId": null,
+        "postcode": 2051,
+        "city": "Biatorbágy",
+        "address": "József Attila utca 74/4."
+    },
+    "recipient": {
+        "name": "Weinstadter Zsolt",
+        "type": "magánszemély",
+        "postcode": 8000,
+        "city": "Székesfehérvár",
+        "address": "Szövetség u. 40"
+    },
+    "serviceProvider": {
+        "name": "Zeller és Zeller",
+        "type": "Kft",
+        "taxId": "01-09-993019",
+        "registerId": "24154440-2-42",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    }
 }, {
-    "customerName": "Controll and Quality",
-    "customerType": "Kft",
-    "customerTaxId": "20165091-2-41",
-    "customerRegisterId": "12-09-007807",
-    "customerPostcode": 2030,
-    "customerCity": "Érd",
-    "customerAddress": "Kálvin tér 1",
-    "contractSignerName": "Dr. Kisné Sváb Ildikó",
-    "contractSignerType": "ügyvezető",
-    "contractSignerTaxId": null,
-    "contractSignerRegisterId": "449084KA",
-    "contracSignerMotherName": "Pallagi Klára"
+    "customer": {
+        "name": "Controll and Quality",
+        "type": "Kft",
+        "taxId": "20165091-2-41",
+        "registerId": "12-09-007807",
+        "postcode": 2030,
+        "city": "Érd",
+        "address": "Kálvin tér 1"
+    },
+    "signer": {
+        "name": "Dr. Kisné Sváb Ildikó",
+        "type": "ügyvezető",
+        "taxId": null,
+        "registerId": "449084KA",
+        "motherName": "Pallagi Klára"
+    },
+    "holder": {
+        "name": "Kuti Miklósné",
+        "type": "magánszemély",
+        "taxId": null,
+        "registerId": null,
+        "postcode": 8200,
+        "city": "Veszprém",
+        "address": "Baláca u. 18."
+    },
+    "recipient": {
+        "name": "Pintér József",
+        "type": "magánszemély",
+        "postcode": 2535,
+        "city": "Mogyorósbánya",
+        "address": "Felszabadulás u. 29"
+    },
+    "serviceProvider": {
+        "name": "World Top Sport",
+        "type": "Bt",
+        "taxId": "01-09-203204",
+        "registerId": "25158179-1-41",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    }
 }]

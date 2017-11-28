@@ -15,9 +15,9 @@ class DbAction {
     _addAddress(_type) {
         const _normalizedPayload = new _NormalizedPayload();
 
-        _normalizedPayload.append(this.formData[`${_type}Postcode`], 'postcode', 'INTEGER');
-        _normalizedPayload.append(this.formData[`${_type}City`], 'city', 'STRING');
-        _normalizedPayload.append(this.formData[`${_type}Address`], 'address', 'STRING');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'postcode'], null), 'postcode', 'INTEGER');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'city'], null), 'city', 'STRING');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'address'], null), 'address', 'STRING');
 
         if (_normalizedPayload.size() === 0) {
             return Promise.resolve();
@@ -43,12 +43,12 @@ class DbAction {
     _addLegalEntity(_type) {
         const _normalizedPayload = new _NormalizedPayload();
 
-        _normalizedPayload.append(LEGAL_ENTITY_LOOKUP[this.formData[`${_type}Type`]],
+        _normalizedPayload.append(LEGAL_ENTITY_LOOKUP[_.get(this.formData, [_type, 'type'], null)],
             'type', 'INTEGER');
-        _normalizedPayload.append(this.formData[`${_type}Name`], 'name', 'STRING');
-        _normalizedPayload.append(this.formData[`${_type}RegisterId`], 'registerId', 'STRING');
-        _normalizedPayload.append(this.formData[`${_type}TaxId`], 'taxId', 'STRING');
-        _normalizedPayload.append(this.formData[`${_type}MotherName`], 'motherName', 'STRING');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'name'], null), 'name', 'STRING');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'registerId'], null), 'registerId', 'STRING');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'taxId'], null), 'taxId', 'STRING');
+        _normalizedPayload.append(_.get(this.formData, [_type, 'motherName'], null), 'motherName', 'STRING');
 
         if (_normalizedPayload.size() === 0) {
             return Promise.resolve();
