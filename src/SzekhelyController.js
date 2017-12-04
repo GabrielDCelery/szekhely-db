@@ -13,10 +13,11 @@ class SzekhelyController {
             customer: SzekhelyDatabase.getController('customer'),
             customerHistory: SzekhelyDatabase.getController('customerHistory'),
             contract: SzekhelyDatabase.getController('contract'),
-            signer: SzekhelyDatabase.getController('signer'),
+            customerSigner: SzekhelyDatabase.getController('customerSigner'),
             holder: SzekhelyDatabase.getController('holder'),
             recipient: SzekhelyDatabase.getController('recipient'),
             serviceProvider: SzekhelyDatabase.getController('serviceProvider'),
+            serviceProviderSigner: SzekhelyDatabase.getController('serviceProviderSigner'),
             address: SzekhelyDatabase.getController('address')
         };
 

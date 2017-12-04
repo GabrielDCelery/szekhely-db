@@ -8,7 +8,7 @@
         "city": "Budapest",
         "address": "Miklós utca 13 8/42"
     },
-    "signer": {
+    "customerSigner": {
         "name": "Dr. Kisné Sváb Ildikó",
         "type": "ügyvezető",
         "taxId": null,
@@ -39,6 +39,13 @@
         "postcode": 1035,
         "city": "Budapest",
         "address": "Miklós utca 13 8/42"
+    },
+    "serviceProviderSigner": {
+        "name": "Zeller Ildikó",
+        "type": "magánszemély",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
     }
 }, {
     "customer": {
@@ -50,7 +57,7 @@
         "city": "Budapest",
         "address": "Miklós utca 13 8/42"
     },
-    "signer": {
+    "customerSigner": {
         "name": "Michael Cormac O'Hare",
         "type": "ügyvezető",
         "taxId": null,
@@ -81,6 +88,13 @@
         "postcode": 1035,
         "city": "Budapest",
         "address": "Miklós utca 13 8/42"
+    },
+    "serviceProviderSigner": {
+        "name": "Zeller Ildikó",
+        "type": "magánszemély",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
     }
 }, {
     "customer": {
@@ -92,7 +106,7 @@
         "city": "Érd",
         "address": "Kálvin tér 1"
     },
-    "signer": {
+    "customerSigner": {
         "name": "Dr. Kisné Sváb Ildikó",
         "type": "ügyvezető",
         "taxId": null,
@@ -120,6 +134,13 @@
         "type": "Bt",
         "taxId": "01-09-203204",
         "registerId": "25158179-1-41",
+        "postcode": 1035,
+        "city": "Budapest",
+        "address": "Miklós utca 13 8/42"
+    },
+    "serviceProviderSigner": {
+        "name": "Zeller Ildikó",
+        "type": "magánszemély",
         "postcode": 1035,
         "city": "Budapest",
         "address": "Miklós utca 13 8/42"

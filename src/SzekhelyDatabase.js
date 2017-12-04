@@ -15,20 +15,20 @@ const MODELS = {
         name: 'contractHistory',
         definition: require('./models/contractHistory')
     },
-    signer: {
-        name: 'signer',
-        definition: require('./models/legalEntity')
-    },
-    signerHistory: {
-        name: 'signerHistory',
-        definition: require('./models/legalEntityHistory')
-    },
     customer: {
         name: 'customer',
         definition: require('./models/legalEntity')
     },
     customerHistory: {
         name: 'customerHistory',
+        definition: require('./models/legalEntityHistory')
+    },
+    customerSigner: {
+        name: 'customerSigner',
+        definition: require('./models/legalEntity')
+    },
+    customerSignerHistory: {
+        name: 'customerSignerHistory',
         definition: require('./models/legalEntityHistory')
     },
     holder: {
@@ -70,7 +70,15 @@ const MODELS = {
     serviceProviderHistory: {
         name: 'serviceProviderHistory',
         definition: require('./models/legalEntityHistory')
-    }
+    },
+    serviceProviderSigner: {
+        name: 'serviceProviderSigner',
+        definition: require('./models/legalEntity')
+    },
+    serviceProviderSignerHistory: {
+        name: 'serviceProviderSignerHistory',
+        definition: require('./models/legalEntityHistory')
+    },
 };
 
 const ASSOCIATIONS = {
@@ -99,20 +107,20 @@ const ASSOCIATIONS = {
         source: 'contract',
         target: 'contractHistory'
     },
-    signerContracts: {
+    customerSignerContracts: {
         type: 'oneToMany',
-        source: 'signer',
+        source: 'customerSigner',
         target: 'contract'
     },
-    signerAddress: {
+    customerSignerAddress: {
         type: 'oneToMany',
         source: 'address',
-        target: 'signer'
+        target: 'customerSigner'
     },
-    signerHistory: {
+    customerSignerHistory: {
         type: 'oneToMany',
-        source: 'signer',
-        target: 'signerHistory'
+        source: 'customerSigner',
+        target: 'customerSignerHistory'
     },
     recipientContract: {
         type: 'oneToMany',
@@ -143,6 +151,21 @@ const ASSOCIATIONS = {
         type: 'oneToMany',
         source: 'serviceProvider',
         target: 'serviceProviderHistory'
+    },
+    serviceProviderSignerContracts: {
+        type: 'oneToMany',
+        source: 'serviceProviderSigner',
+        target: 'contract'
+    },
+    serviceProviderSignerAddress: {
+        type: 'oneToMany',
+        source: 'address',
+        target: 'serviceProviderSigner'
+    },
+    serviceProviderSignerHistory: {
+        type: 'oneToMany',
+        source: 'serviceProviderSigner',
+        target: 'serviceProviderSignerHistory'
     },
     holderContracts: {
         type: 'oneToMany',
