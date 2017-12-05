@@ -3,15 +3,7 @@
         "startingDate": "2017-06-01T22:12:13.284Z",
         "endingDate": "2017-12-01T22:12:13.284Z",
         "services": 0,
-        "phones": [{
-            "country": "36",
-            "provider": "30",
-            "number": "3253885"
-        }, {
-            "country": "36",
-            "provider": "70",
-            "number": "7775176"
-        }]
+        "phones": ["36303253885", "36707775176"]
     },
     "customer": {
         "name": "Agrár-Fer 99",
@@ -66,15 +58,7 @@
         "startingDate": "2017-04-12T22:12:13.284Z",
         "endingDate": "2017-10-12T22:12:13.284Z",
         "services": 0,
-        "phones": [{
-            "country": "36",
-            "provider": "30",
-            "number": "3253885"
-        }, {
-            "country": "36",
-            "provider": "70",
-            "number": "7775176"
-        }]
+        "phones": ["36303253885", "36707775176"]
     },
     "customer": {
         "name": "Budapesti út 6.",
@@ -129,15 +113,7 @@
         "startingDate": "2017-03-23T22:12:13.284Z",
         "endingDate": "2017-09-23T22:12:13.284Z",
         "services": 0,
-        "phones": [{
-            "country": "36",
-            "provider": "30",
-            "number": "3253885"
-        }, {
-            "country": "36",
-            "provider": "70",
-            "number": "7775176"
-        }]
+        "phones": ["36303253885", "36707775176"]
     },
     "customer": {
         "name": "Controll and Quality",

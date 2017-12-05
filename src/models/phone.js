@@ -9,12 +9,6 @@ function phone(_sequelize, _modelName, _options) {
             defaultValue: _sequelize.Sequelize.UUIDV4,
             primaryKey: true
         },
-        country: {
-            type: _sequelize.Sequelize.STRING(4)
-        },
-        provider: {
-            type: _sequelize.Sequelize.STRING(4)
-        },
         number: {
             type: _sequelize.Sequelize.STRING(20)
         },

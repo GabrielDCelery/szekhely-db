@@ -76,9 +76,7 @@ class DbAction {
         return Bluebird.mapSeries(_phones, _phone => {
                 const _normalizedPayload = new _NormalizedPayload();
 
-                _normalizedPayload.append(_.get(_phone, ['country']), 'country', 'STRING');
-                _normalizedPayload.append(_.get(_phone, ['provider']), 'provider', 'STRING');
-                _normalizedPayload.append(_.get(_phone, ['number']), 'number', 'STRING');
+                _normalizedPayload.append(_phone, 'number', 'STRING');
 
                 const _where = _normalizedPayload.get();
                 const _defaults = _.merge(_normalizedPayload.get(), {
