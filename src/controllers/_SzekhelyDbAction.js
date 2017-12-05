@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const Bluebird = require('bluebird');
 const _NormalizedPayload = require('./_NormalizedPayload');
 const LEGAL_ENTITY_LOOKUP = require('../lookups/legalEntityTypesToIntegers');
 
@@ -10,6 +11,23 @@ class DbAction {
         this.records = {};
         this.formData = null;
         this.transaction = null;
+    }
+
+    _addContract() {
+        const _normalizedPayload = new _NormalizedPayload();
+
+        _normalizedPayload.append(_.get(this.formData, ['contract', 'startingDate'], null), 'startingDate', 'DATE');
+        _normalizedPayload.append(_.get(this.formData, ['contract', 'endingDate'], null), 'endingDate', 'DATE');
+        _normalizedPayload.append(_.get(this.formData, ['contract', 'services'], null), 'services', 'INTEGER');
+
+        if (_normalizedPayload.size() === 0) {
+            return Promise.resolve();
+        }
+
+        return this.controllers.contract.add(_normalizedPayload.get(), this.transaction)
+            .then(_result => {
+                _.set(this.records, ['contract'], _result);
+            });
     }
 
     _addAddress(_type) {
@@ -26,18 +44,8 @@ class DbAction {
         return this.controllers.address.findOrCreate(_normalizedPayload.get(),
                 _normalizedPayload.get(), this.transaction)
             .then(_result => {
-                this.records[`${_type}Address`] = _result[0];
+                _.set(this.records, [_type, 'address'], _result[0]);
             });
-    }
-
-    _setAddress(_type) {
-        if (!this.records[`${_type}Address`]) {
-            return Promise.resolve();
-        }
-
-        return this.records[_type].setAddress(this.records[`${_type}Address`], {
-            transaction: this.transaction
-        });
     }
 
     _addLegalEntity(_type) {
@@ -57,20 +65,60 @@ class DbAction {
         return this.controllers[_type].findOrCreate(_normalizedPayload.get(),
                 _normalizedPayload.get(), this.transaction)
             .then(_result => {
-                this.records[_type] = _result[0];
+                _.set(this.records, [_type, 'legalEntity'], _result[0]);
             });
     }
 
-    static _isPayloadValid(_payload) {
-        let _bValid = false;
+    _addPhones() {
+        const _phones = _.get(this.formData, ['contract', 'phones'], []);
+        const _phoneRecords = [];
 
-        _.forEach(_payload, _v => {
-            if (!_.isNil(_v)) {
-                _bValid = true;
-            }
+        return Bluebird.mapSeries(_phones, _phone => {
+                const _normalizedPayload = new _NormalizedPayload();
+
+                _normalizedPayload.append(_.get(_phone, ['country']), 'country', 'STRING');
+                _normalizedPayload.append(_.get(_phone, ['provider']), 'provider', 'STRING');
+                _normalizedPayload.append(_.get(_phone, ['number']), 'number', 'STRING');
+
+                const _where = _normalizedPayload.get();
+                const _defaults = _.merge(_normalizedPayload.get(), {
+                    active: true
+                });
+
+                return this.controllers.phone.findOrCreate(_where, _defaults, this.transaction)
+                    .then(_result => {
+                        _phoneRecords.push(_result[0]);
+                    });
+            })
+            .then(() => {
+                _.set(this.records, ['phones'], _phoneRecords);
+            });
+    }
+
+    _setAddress(_type) {
+        const _recordLegalEntity = _.get(this.records, [_type, 'legalEntity'], null);
+        const _recordAddress = _.get(this.records, [_type, 'address'], null);
+
+        if (!_recordLegalEntity || !_recordAddress) {
+            return Promise.resolve();
+        }
+
+        return _recordLegalEntity.setAddress(_recordAddress, {
+            transaction: this.transaction
         });
+    }
 
-        return _bValid;
+    _setPhones() {
+        const _recordContract = _.get(this.records, ['contract'], null);
+        const _recordPhones = _.get(this.records, ['phones'], null);
+
+        if (!_recordContract || !_recordPhones) {
+            return Promise.resolve();
+        }
+
+        return _recordContract.setPhones(_recordPhones, {
+            transaction: this.transaction
+        });
     }
 }
 

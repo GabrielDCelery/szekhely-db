@@ -8,17 +8,26 @@ class AddNewContract extends _SzekhelyDbAction {
         this.formData = _formData;
         this.transaction = _transaction;
 
-        return Bluebird.mapSeries(['customer', 'customerSigner', 'holder',
-            'recipient', 'serviceProvider', 'serviceProviderSigner'
-        ], _type => {
-            return this._addAddress(_type)
-                .then(() => {
-                    return this._addLegalEntity(_type);
-                })
-                .then(() => {
-                    return this._setAddress(_type);
+        return this._addContract()
+            .then(() => {
+                return this._addPhones();
+            })
+            .then(() => {
+                return this._setPhones();
+            })
+            .then(() => {
+                return Bluebird.mapSeries(['customer', 'customerSigner', 'holder',
+                    'recipient', 'serviceProvider', 'serviceProviderSigner'
+                ], _type => {
+                    return this._addAddress(_type)
+                        .then(() => {
+                            return this._addLegalEntity(_type);
+                        })
+                        .then(() => {
+                            return this._setAddress(_type);
+                        });
                 });
-        });
+            });
     }
 }
 

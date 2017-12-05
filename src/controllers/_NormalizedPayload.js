@@ -15,6 +15,18 @@ class _NormalizedPayload {
         this.normalizedPayload[_key] = _.toString(_value);
     }
 
+    _appendDATE(_key, _value) {
+        let _date = null;
+
+        try {
+            _date = new Date(_value);
+        } catch (_error) {
+            _date = null;
+        }
+
+        this.normalizedPayload[_key] = _date;
+    }
+
     append(_value, _key, _type) {
         if (_.isNil(_value)) {
             return;
@@ -28,7 +40,7 @@ class _NormalizedPayload {
     }
 
     get() {
-        return this.normalizedPayload;
+        return _.cloneDeep(this.normalizedPayload);
     }
 }
 

@@ -12,8 +12,8 @@ function email(_sequelize, _modelName, _options) {
         address: {
             type: _sequelize.Sequelize.STRING(255)
         },
-        status: {
-            type: _sequelize.Sequelize.INTEGER.UNSIGNED
+        active: {
+            type: _sequelize.Sequelize.BOOLEAN()
         }
     }, _.defaultsDeep({}, {}, _options));
 }

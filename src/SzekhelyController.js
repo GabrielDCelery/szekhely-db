@@ -10,9 +10,10 @@ const DB_ACTION_CLASSES = {
 class SzekhelyController {
     static _instantiateDbActionClass(_type) {
         const _controllers = {
+            contract: SzekhelyDatabase.getController('contract'),
+            phone: SzekhelyDatabase.getController('phone'),
             customer: SzekhelyDatabase.getController('customer'),
             customerHistory: SzekhelyDatabase.getController('customerHistory'),
-            contract: SzekhelyDatabase.getController('contract'),
             customerSigner: SzekhelyDatabase.getController('customerSigner'),
             holder: SzekhelyDatabase.getController('holder'),
             recipient: SzekhelyDatabase.getController('recipient'),
